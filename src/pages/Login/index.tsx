@@ -1,10 +1,13 @@
+import Cookies from "js-cookie";
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 import Countries from "../../service/Countries";
 
 export default function Login() {
   const [key, setKey] = useState('' as string);
   const [error, setError] = useState(false as boolean);
   const [loading, setLoading] = useState(false as boolean);
+  const navigate = useNavigate()
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -14,12 +17,16 @@ export default function Login() {
 
   const test = async () => {
     setLoading(true);
-    const data = await Countries.validateKey(key)
+    const data = await Countries.validateKey(key);
+    console.log(data);
     
-    if (!data) {
-      setError(true);
-      setLoading(false);
+    
+    if (data) {
+      Cookies.set("key", key);
+      navigate("/countries");
     }
+    setError(true);
+    setLoading(false);
   }
 
   return (

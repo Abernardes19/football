@@ -6,7 +6,6 @@ class Countries {
     try {
       const { data } = await api.get<ICountriesRequest>("/countries", {
         headers: {
-          "x-rapidapi-host":  "v3.football.api-sports .io",
           "x-rapidapi-key":  key
         },
         params: {
@@ -22,14 +21,10 @@ class Countries {
     }
   }
 
-  async getAllCoutries(key: string): Promise<ICountries[] | false> {
+  async getAllCoutries(): Promise<ICountries[] | false> {
     try {
-      const { data } = await api.get("/countries", {
-        headers: {
-          "x-rapidapi-host":  "v3.football.api-sports .io",
-          "x-rapidapi-key":  key
-        },
-      });
+      const { data } = await api.get("/countries");
+
       return data
     } catch (error) {
       return false
