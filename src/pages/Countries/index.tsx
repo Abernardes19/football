@@ -32,14 +32,14 @@ export default function Countries() {
       <header className=" fixed top-0 w-full flex justify-center items-center border-b p-2 h-[80px] bg-black-1">
         <h1>Countries</h1>
       </header>
-      <div className=" pt-[100px] w-full flex flex-col items-center gap-5 justify-center">
+      <div className=" pt-[100px] w-full flex flex-col items-center gap-10 justify-center">
         <label className=" flex flex-col">
           País:
           <input className=" rounded-xl border bg-blue-1 p-2 w-[300px]" value={search} onChange={handleChange} />
         </label>
         <div className=" w-full flex flex-col items-center gap-5 justify-center sm:flex-row sm:flex-wrap">
           { loading ? (
-            <Loading size="50px" />
+            <Loading size="w-[100px]" />
           ) : (
             allCountries
               .filter((e) => e.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))

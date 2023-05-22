@@ -18,9 +18,7 @@ export default function Login() {
 
   const test = async () => {
     setLoading(true);
-    const data = await Countries.validateKey(key);
-    console.log(data);
-    
+    const data = await Countries.validateKey(key);  
     
     if (data) {
       Cookies.set("key", key);
@@ -42,7 +40,7 @@ export default function Login() {
           { error && <p className=" text-red-500">Por favor insira uma chave valida!</p> }
           <button className=" border border-white py-2 w-full rounded-2xl hover:bg-white hover:text-black-1 transition duration-500 hover:translate-y-1 hover:translate-x-1" type="button" onClick={() => test()}>{
             loading ? (
-              <Loading size="20px" />
+              <Loading size="w-[20px]" />
             ) : <p>Login</p>
           }</button>
         </form>
