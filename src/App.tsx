@@ -1,6 +1,14 @@
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import Login from "./pages/Login";
+
 function App() {
   return (
-    <div>Iniciando Projeto</div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={ <Navigate to="/login" /> } />
+        <Route path="/login" element={ <Login /> } />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
