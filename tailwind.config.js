@@ -8,11 +8,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        "black-1": "#06130a",
-        "green-1": "#1e3a3c",
-        "brown-1": "#322211",
-        "brown-2": "#696054",
-        "brown-3": "#adab9e"
+        "blue-1": "#0f1531",
+        "black-1": "#000004",
+        "gray-1": "#5f566a",
+        "gray-2": "#aca4ac",
+        "beige": "#eaedeb"
       }
     },
   },

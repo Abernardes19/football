@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/Loading";
 import Countries from "../../service/Countries";
 
 export default function Login() {
@@ -41,10 +42,7 @@ export default function Login() {
           { error && <p className=" text-red-500">Por favor insira uma chave valida!</p> }
           <button className=" border border-white py-2 w-full rounded-2xl hover:bg-white hover:text-black-1 transition duration-500 hover:translate-y-1 hover:translate-x-1" type="button" onClick={() => test()}>{
             loading ? (
-              <div className=" flex items-center justify-center gap-2">
-                <img className=" w-[20px] animate-spin" src="https://i.pinimg.com/originals/63/c2/85/63c285141e9a8f5cbc036b577f56a7dd.png" alt="ball" />
-                <p>Loading...</p>
-              </div>
+              <Loading size="20px" />
             ) : <p>Login</p>
           }</button>
         </form>

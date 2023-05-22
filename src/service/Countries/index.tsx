@@ -1,11 +1,13 @@
 import api from "../Api/api";
-import { ICountries, ICountriesRequest } from "./countries.structure";
+import Cookies from "js-cookie";
+import { ICountriesRequest } from "./countries.structure";
 
 class Countries {
   async validateKey(key: string): Promise<true | false> {
     try {
       const { data } = await api.get<ICountriesRequest>("/countries", {
         headers: {
+          "x-rapidapi-host": "v3.football.api-sports .io",
           "x-rapidapi-key":  key
         },
         params: {
@@ -21,9 +23,15 @@ class Countries {
     }
   }
 
-  async getAllCoutries(): Promise<ICountries[] | false> {
+  async getAllCoutries(): Promise<ICountriesRequest | false> {
+    const key = Cookies.get("key");
     try {
-      const { data } = await api.get("/countries");
+      const { data } = await api.get("/countries" ,{
+        headers: {
+          "x-rapidapi-host": "v3.football.api-sports .io",
+          "x-rapidapi-key": key
+        }
+      });
 
       return data
     } catch (error) {
