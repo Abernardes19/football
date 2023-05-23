@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ILeaguesRequest } from "../../service/Leagues/leagues.structure";
 
 export default function LeaguesCard({ league }: { league: ILeaguesRequest }) {
   const [seasons, setSeasons] = useState(false as boolean);
+  const navigate = useNavigate()
 
   return (
     <div className="bg-black-1 border w-[200px] min-h-[220px]">
@@ -18,7 +20,13 @@ export default function LeaguesCard({ league }: { league: ILeaguesRequest }) {
             {
               league.seasons.map((e) => {
                 return (
-                  <button type="button" className=" border p-2">{e.year}</button>
+                  <button
+                    type="button"
+                    className=" border p-2"
+                    onClick={() => navigate(`/teams/${league.league.id}-${league.league.name}/${e.year}`)}
+                  >
+                    {e.year}
+                  </button>
                 )
               })
             }
