@@ -15,9 +15,7 @@ export interface ISeason {
 }
 
 export interface ILeaguesRequest {
-  response: {
-    league: ILeague;
-    country: ICountries
-    seasons: ISeason[]
-  }[]
+  league: ILeague;
+  country: ICountries
+  seasons: ISeason[]
 }

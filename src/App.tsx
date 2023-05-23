@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={ <Navigate to="/login" /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/countries" element={ key !== undefined ? <Countries /> : <Login /> } />
-        <Route path="/leagues/:id" element={
+        <Route path="/leagues/:country" element={
           key !== undefined ? <Leagues /> : <Login />
         } />
       </Routes>
