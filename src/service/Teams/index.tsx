@@ -23,7 +23,7 @@ class Teams {
     }
   }
 
-  async getStaticsTeams({league, season, team}: {league: string, season: string, team: number}): Promise<IStatiscsRequest | false> {
+  async getStaticsTeams({league, season, team}: {league: string, season: string, team: string}): Promise<IStatiscsRequest | false> {
     const key = Cookies.get("key");
     try {
       const { data: { response } } = await api.get("/teams" ,{

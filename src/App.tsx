@@ -4,6 +4,7 @@ import AllTeams from "./pages/AllTeams";
 import Countries from "./pages/Countries";
 import Leagues from "./pages/Leagues";
 import Login from "./pages/Login";
+import Team from "./pages/Team";
 
 function App() {
   const key = Cookies.get("key");
@@ -19,6 +20,9 @@ function App() {
         } />
         <Route path="/teams/:league/:season" element={
           key !== undefined ? <AllTeams /> : <Login />
+        } />
+        <Route path="/statistic/:team/:league/:season" element={
+          key !== undefined ? <Team /> : <Login />
         } />
       </Routes>
     </BrowserRouter>
