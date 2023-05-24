@@ -5,8 +5,9 @@ export interface IPlayer {
   number: number;
   position: string;
   photo: string;
+  nationality: string;
 }
 
 export interface IPlayersRequest {
-  players: IPlayer[]
+  player: IPlayer
 }

@@ -7,6 +7,22 @@ export interface ITeam {
   logo: string;
 }
 
+export interface IMinuteKeys {
+  total: number | null;
+  percentage: string | null;
+}
+
+export interface IMinute {
+  "0-15": IMinuteKeys,
+  "16-30": IMinuteKeys,
+  "31-45": IMinuteKeys,
+  "46-60": IMinuteKeys,
+  "61-75": IMinuteKeys,
+  "76-90": IMinuteKeys,
+  "91-105": IMinuteKeys,
+  "106-120": IMinuteKeys
+  }
+
 export interface ILineup {
   formation: string;
   played: number;
@@ -38,10 +54,12 @@ export interface IStatiscsRequest {
     for: {
       total: IStaticsGame;
       average: IStaticsGame;
+      minute: IMinute;
     },
     against: {
       total: IStaticsGame;
-      average: IStaticsGame;  
+      average: IStaticsGame;
+      minute: IMinute;
     }
   },
   lineups: ILineup[]

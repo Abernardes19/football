@@ -3,16 +3,17 @@ import Cookies from "js-cookie";
 import { IPlayersRequest } from "./players.structure";
 
 class Players {
-  async getPlayersByTeam(team: number): Promise<IPlayersRequest | false> {
+  async getPlayersByTeam(team: string, season: string): Promise<IPlayersRequest[] | false> {
     const key = Cookies.get("key");
     try {
-      const { data: { response } } = await api.get("/players/squads" ,{
+      const { data: { response } } = await api.get("/players" ,{
         headers: {
           "x-rapidapi-host": "v3.football.api-sports .io",
           "x-rapidapi-key": key
         },
         params: {
-          team
+          team,
+          season
         }
       });
 

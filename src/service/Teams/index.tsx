@@ -26,7 +26,7 @@ class Teams {
   async getStaticsTeams({league, season, team}: {league: string, season: string, team: string}): Promise<IStatiscsRequest | false> {
     const key = Cookies.get("key");
     try {
-      const { data: { response } } = await api.get("/teams" ,{
+      const { data: { response } } = await api.get("/teams/statistics" ,{
         headers: {
           "x-rapidapi-host": "v3.football.api-sports .io",
           "x-rapidapi-key": key

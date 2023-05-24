@@ -26,22 +26,26 @@ export default function AllTeams() {
 
   return (
     <div className=" w-screen h-screen bg-blue-1">
-      <header className=" fixed top-0 w-full flex justify-center items-center border-b p-2 h-[150px] bg-black-1 flex-col gap-2">
-        <h1>{`Teams - ${league?.split("-")[1]} - ${season}`}</h1>
+      <header className=" fixed top-0 w-full flex justify-center items-center border-b p-2 sm:h-[150px] bg-black-1 flex-col gap-2">
+        <h1 className=" text-center">{`Teams - ${league?.split("-")[1]} - ${season}`}</h1>
         <button type="button" onClick={() => navigate("/countries")} className="bg-blue-1 p-2 border rounded">Countries</button>
       </header>
-      <div className=" pt-[200px] w-full flex flex-col items-start gap-10 justify-center sm:flex-row sm:flex-wrap pb-[50px] bg-blue-1">
+      <div className=" pt-[200px] w-screen flex flex-col items-center gap-10 justify-center sm:flex-row sm:flex-wrap pb-[50px] bg-blue-1">
       {
         loading ? (
           <Loading size="w-[100px]" />
         ) : (
-          teams.map((e) => {
-            return (
-              <div>
-                <TeamsCard team={e} />
-              </div>
-            )
-          })
+          <div className=" w-[90%] flex flex-col gap-5 sm:flex-row sm:flex-wrap">
+            {
+              teams.map((e) => {
+                return (
+                  <div>
+                    <TeamsCard team={e} />
+                  </div>
+                )
+              })
+            }
+          </div>
         )
       }
       </div>

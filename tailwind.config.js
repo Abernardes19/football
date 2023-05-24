@@ -10,7 +10,7 @@ export default {
       colors: {
         "blue-1": "#0f1531",
         "black-1": "#000004",
-        "gray-1": "#5f566a",
+        "gray-1": "#ced4da",
         "gray-2": "#aca4ac",
         "beige": "#eaedeb"
       }
